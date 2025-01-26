@@ -1,0 +1,29 @@
+openapi: "3.0.0"
+info:
+  version: "1.0.0"
+  title: "Demographic Data"
+servers:
+  - url: https://localhost
+
+paths:
+  /api/state-populations/:
+    get:
+      parameters:
+        - name: state_name
+          in: query
+          schema:
+            type: string
+            example: "Arizona"
+      responses:
+         "200":
+          description: JSON Format with state population
+          content:
+            application/json:
+              schema:
+                items:
+                  type: object
+                  properties:
+                    state_name:
+                      type: string
+                    population:
+                      type: integer
